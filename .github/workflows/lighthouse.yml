@@ -2,7 +2,7 @@
 
 name: Lighthouse CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -11,7 +11,14 @@ on:
   #  branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch: Run Lighthouse
+  workflow_dispatch:
+      inputs:
+        logLevel:
+          description: 'Log level'
+          required: true
+          default: 'warning'
+        tags:
+          description: 'Run Lighthouse test'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
